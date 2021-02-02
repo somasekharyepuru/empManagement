@@ -1,0 +1,14 @@
+.vl {
+  border-right: thick solid #000000;
+  margin-right: 50px;
+  height: 100%;
+}
+
+.mh-60 {
+  max-height: 60vh;
+  overflow: auto;
+}
+
+.h100 {
+  height: 100%;
+}
