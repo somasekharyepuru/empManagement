@@ -3,7 +3,7 @@ empManagement
 
 
 for running mock-server
-json-server --watch db.json
+go to mockServer folder --> json-server --watch db.json
 
 
 for running angular
