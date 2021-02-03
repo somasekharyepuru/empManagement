@@ -1,0 +1,29 @@
+<div class="container-fluid">
+  <div class="signup">
+    <div class="card">
+      <div class="card-title text-center">
+        <h2>Register</h2>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="signUpForm">
+          <div class="form-group">
+            <label for="empName">Name</label>
+            <input type="text" class="form-control" formControlName="empName" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" formControlName="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" name="password" id="password" formControlName="password" class="form-control" placeholder="Password">
+          </div>
+          <div class="form-group text-center">
+            <button class="btn btn-primary" (click)="submit()">Register</button>
+            <button class="btn btn-primary ml-2" [routerLink]="'/login'">Login</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

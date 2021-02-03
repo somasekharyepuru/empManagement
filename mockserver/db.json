@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "empName": "somu",
+      "email": "s",
+      "password": "ss",
+      "id": "somu_TZD6z"
+    },
+    {
+      "empName": "s",
+      "email": "s",
+      "password": "s",
+      "id": "s_Bv8ER"
+    }
+  ],
+  "kpiValues": [
+    {
+      "empId": "s_Bv8ER",
+      "empName": "s",
+      "department": "dep1",
+      "kpiValue": "value1",
+      "numerator": "11",
+      "denominator": "111",
+      "insertedDate": "2021-01-01T18:24:25.543Z",
+      "enteredBy": null,
+      "percentValue": 9.90990990990991,
+      "dateString": "2021-0-1",
+      "id": 1
+    }
+  ]
+}

@@ -10,13 +10,21 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ValidationDirective } from './validation.directive';
 
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { HeaderComponent } from './components/header/header.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     EmpListComponent,
-    ValidationDirective
+    LoginComponent,
+    SignUpComponent,
+    ValidationDirective,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -24,7 +32,8 @@ import { ValidationDirective } from './validation.directive';
     FormsModule,
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

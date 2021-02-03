@@ -12,3 +12,7 @@
 .h100 {
   height: 100%;
 }
+
+.card-title {
+  margin: 10px 0 0 0;
+}
