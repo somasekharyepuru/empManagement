@@ -1,31 +1,104 @@
 {
   "users": [
     {
-      "empName": "somu",
-      "email": "s",
-      "password": "ss",
-      "id": "somu_TZD6z"
+      "empName": "admin",
+      "email": "sysadmin@gmail.com",
+      "password": "admin@123",
+      "role": "admin"
     },
     {
-      "empName": "s",
-      "email": "s",
-      "password": "s",
-      "id": "s_Bv8ER"
+      "empName": "somu",
+      "email": "somu@gmail.com",
+      "role": "ot",
+      "password": "mari@1234",
+      "id": "somu_vGd0X"
+    },
+    {
+      "empName": "Somasekhar",
+      "email": "somasekharyepuru@gmail.com",
+      "role": "mrma",
+      "password": "sss",
+      "id": "Somasekhar_6T9pW"
     }
   ],
   "kpiValues": [
     {
-      "empId": "s_Bv8ER",
-      "empName": "s",
-      "department": "dep1",
-      "kpiValue": "value1",
-      "numerator": "11",
-      "denominator": "111",
-      "insertedDate": "2021-01-01T18:24:25.543Z",
+      "empId": "somu_vGd0X",
+      "empName": "somu",
+      "department": "ot",
+      "kpiValue": "value3",
+      "numerator": "100",
+      "denominator": "300",
+      "insertedDate": "2021-02-01T17:44:31.656Z",
       "enteredBy": null,
-      "percentValue": 9.90990990990991,
-      "dateString": "2021-0-1",
+      "percentValue": 20,
+      "dateString": "2021-1-1",
       "id": 1
+    },
+    {
+      "empId": "somu_vGd0X",
+      "empName": "somu",
+      "department": "ot",
+      "kpiValue": "value4",
+      "numerator": "10",
+      "denominator": "100",
+      "insertedDate": "2020-12-31T19:23:52.336Z",
+      "enteredBy": null,
+      "percentValue": 10,
+      "dateString": "2021-0-1",
+      "id": 2
+    },
+    {
+      "empId": "somu_vGd0X",
+      "empName": "somu",
+      "department": "ot",
+      "kpiValue": "value4",
+      "numerator": "12",
+      "denominator": "1111",
+      "insertedDate": "2020-12-31T19:24:26.753Z",
+      "enteredBy": null,
+      "percentValue": 1.08010801080108,
+      "dateString": "2021-0-1",
+      "id": 3
+    },
+    {
+      "empId": "somu_vGd0X",
+      "empName": "somu",
+      "department": "ot",
+      "kpiValue": "value5",
+      "numerator": "12",
+      "denominator": "120",
+      "insertedDate": "2021-01-31T19:24:26.753Z",
+      "enteredBy": null,
+      "percentValue": 100,
+      "dateString": "2021-1-1",
+      "id": 4
+    },
+    {
+      "empId": "somu_vGd0X",
+      "empName": "somu",
+      "department": "ot",
+      "kpiValue": "value3",
+      "numerator": "12",
+      "denominator": "120",
+      "insertedDate": "2021-01-31T19:27:16.372Z",
+      "enteredBy": null,
+      "percentValue": 6,
+      "dateString": "2021-1-1",
+      "id": 5
+    },
+    {
+      "empId": "Somasekhar_6T9pW",
+      "empName": "Somasekhar",
+      "department": "mrma",
+      "kpiValue": "value1",
+      "numerator": "12",
+      "denominator": "120",
+      "insertedDate": "2020-12-31T19:31:01.176Z",
+      "enteredBy": null,
+      "percentValue": 10,
+      "dateString": "2021-0-1",
+      "id": 6
     }
   ]
 }

@@ -1,84 +1,36 @@
-export const DepartmentValues = {
-  dep1: {
-    title: 'Dep1',
-    kpiValues: {
-      value1: {
-        title: 'Value1'
-      },
-      value2: {
-        title: 'value2'
-      }
-    }
+export const KPIFixedValues = {
+  value1: {
+    2017: 95,
+    2018: 93,
+    2019: 99
   },
-  dep2: {
-    title: 'Dep2',
-    kpiValues: {
-      value3: {
-        title: 'value3'
-      },
-      value4: {
-        title: 'value4'
-      },
-      value5: {
-        title: 'value5'
-      }
-    }
+  value2: {
+    2017: 90,
+    2018: 91,
+    2019: 93
   },
-  dep3: {
-    title: 'Dep3',
-    kpiValues: {
-      value1: {
-        title: 'Value1'
-      },
-      value2: {
-        title: 'value2'
-      },
-      value4: {
-        title: 'value4'
-      },
-      value5: {
-        title: 'value5'
-      }
-    }
+  value3: {
+    2017: 88,
+    2018: 100,
+    2019: 89
   },
-  dep4: {
-    title: 'Dep4',
-    kpiValues: {
-      value1: {
-        title: 'Value1'
-      },
-      value2: {
-        title: 'value2'
-      },
-      value3: {
-        title: 'value3'
-      },
-      value4: {
-        title: 'value4'
-      },
-      value5: {
-        title: 'value5'
-      }
-    }
+  value4: {
+    2017: 89,
+    2018: 90,
+    2019: 92
   },
-  dep5: {
-    title: 'Dep5',
-    kpiValues: {
-      value1: {
-        title: 'Value1'
-      },
-      value2: {
-        title: 'value2'
-      },
-      value3: {
-        title: 'value3'
-      },
-      value4: {
-        title: 'value4'
-      },
-      value5: {
-        title: 'value5'
-      }
-    }
+  value5: {
+    2017: 96,
+    2018: 91,
+    2019: 92
   }
 }
+
+export const kpiMultiplicationFactory = {
+  value1: 100,
+  value2: 1000,
+  value3: 60,
+  value4: 100,
+  value5: 1000
+}
+

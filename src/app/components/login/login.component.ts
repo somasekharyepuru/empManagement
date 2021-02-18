@@ -21,7 +21,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
 
   submit() {
-    console.log(this.loginForm)
     if (this.loginForm.invalid) {
       return;
     }
@@ -32,7 +31,6 @@ export class LoginComponent implements OnInit {
         this.loginForm.reset();
         alert('invalid credentials')
       }
-      console.log('coming here in the things', data);
     }, err => {
       alert('invalid credentials')
     });

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ChartComponentComponent } from './components/chart-component/chart-component.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'register',
     component: SignUpComponent
+  },
+  {
+    path: 'chart',
+    component: ChartComponentComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '',

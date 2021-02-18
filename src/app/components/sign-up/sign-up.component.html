@@ -15,6 +15,13 @@
             <input type="email" class="form-control" formControlName="email" placeholder="Email">
           </div>
           <div class="form-group">
+            <label for="role">Role</label>
+            <select class="form-control" name="role" id="role" formControlName="role">
+              <option value="-1">Select Value</option>
+              <option *ngFor="let option of getHeaders(availabledepartments)" [value]="option">{{availabledepartments[option].title}}</option>
+            </select>
+          </div>
+          <div class="form-group">
               <label for="password">Password</label>
               <input type="password" name="password" id="password" formControlName="password" class="form-control" placeholder="Password">
           </div>

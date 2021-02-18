@@ -1,0 +1,28 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="d-flex flex-container">
+        <button class="btn btn-primary mr-3" [routerLink]="['/']">Home</button>
+        <div class="form-group">
+          <label for="kpiValue">KPI</label>
+          <select class="form-control" name="kpiValue" id="kpiValue" [(ngModel)]="activeKpi" (change)="changeKpi()">
+            <option value="-1">Select Value</option>
+            <option *ngFor="let option of getHeaders(this.kpiDropdownValues)" [value]="option">{{this.kpiDropdownValues[option].title}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12" *ngIf="showChart">
+      <highcharts-chart
+        [Highcharts]= 'Highcharts'
+        [options]="actualChartOptions"
+        [(update)]="updateChart" [oneToOne]="true"
+
+        style="width: 100%;display: block;height:600px"
+      >
+      </highcharts-chart>
+    </div>
+  </div>
+</div>

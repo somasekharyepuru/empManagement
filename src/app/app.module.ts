@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ChartComponentComponent } from './components/chart-component/chart-component.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { HeaderComponent } from './components/header/header.component';
     LoginComponent,
     SignUpComponent,
     ValidationDirective,
-    HeaderComponent
+    HeaderComponent,
+    ChartComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { HeaderComponent } from './components/header/header.component';
     ReactiveFormsModule,
     BsDatepickerModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

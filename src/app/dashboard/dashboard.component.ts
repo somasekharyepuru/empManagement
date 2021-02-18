@@ -5,7 +5,7 @@ import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from '../services/auth.service';
 import { DashboardService } from './dashboard.service';
-import { DepartmentValues } from './dropdonw_values.cnst';
+import { DepartmentValues } from './department_roles.cnst';
 
 @Component({
   selector: 'app-dashboard',
@@ -34,6 +34,8 @@ export class DashboardComponent implements OnInit {
     minMode: 'month',
     adaptivePosition: true
   };
+  submittedKpiName: string;
+  showChartText = false;
   constructor(
     private dashboardService: DashboardService,
     private router: Router,
@@ -59,7 +61,9 @@ export class DashboardComponent implements OnInit {
     this.bsConfig.minDate = this.minDate;
     this.dropDownFormGroup.get('empId').setValue(this.userInfo.id)
     this.dropDownFormGroup.get('empName').setValue(this.userInfo.empName);
+    this.dropDownFormGroup.get('department').setValue(this.userInfo.role);
     this.dropDownFormGroup.get('empName').disable();
+    this.dropDownFormGroup.get('department').disable();
   }
 
   public resetFormGroup(): void {
@@ -67,6 +71,8 @@ export class DashboardComponent implements OnInit {
     this.dropDownFormGroup.patchValue({ department: '-1', kpiValue: '-1'});
     this.dropDownFormGroup.get('empId').setValue(this.userInfo.id)
     this.dropDownFormGroup.get('empName').setValue(this.userInfo.empName);
+    this.dropDownFormGroup.get('department').setValue(this.userInfo.role);
+    this.dropDownFormGroup.get('department').disable();
     this.dropDownFormGroup.get('empName').disable();
   }
 
@@ -100,7 +106,6 @@ export class DashboardComponent implements OnInit {
   }
 
   public submitDropDownForm(): void {
-    console.log(this.dropDownFormGroup.value);
     if (this.dropDownFormGroup.invalid) {
       alert('submit form is invalid');
       return;
@@ -110,17 +115,26 @@ export class DashboardComponent implements OnInit {
     }
     let formGroupValue = this.dropDownFormGroup.getRawValue();
     if (parseFloat(formGroupValue.numerator) > parseFloat(formGroupValue.denominator)) {
-      console.log('numerator should less than or equal to denominator');
+      alert('numerator should less than or equal to denominator');
       return;
     }
     formGroupValue.enteredBy = this.queryParamsEmpId;
     this.dashboardService.addFormulaStatistics(formGroupValue).subscribe( data => {
-      console.log('inserted succesfully');
-      alert('Percentage:: ' + data.percentValue);
+      // alert('Percentage:: ' + data.percentValue);
+      this.submittedKpiName = this.dropDownFormGroup.get('kpiValue').value;
+      this.showChartText = true;
       this.resetFormGroup();
     }, error => {
       alert('error while inserting the data');
     })
     // this.dropDownFormGroup.reset();
+  }
+
+  public goToChart() {
+    this.router.navigate(['', 'chart'], {
+      queryParams: {
+        kpi: this.submittedKpiName
+      }
+    })
   }
 }

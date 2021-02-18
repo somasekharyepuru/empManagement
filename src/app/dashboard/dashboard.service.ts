@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { KPIFixedValues, kpiMultiplicationFactory } from './dropdonw_values.cnst';
 import { Employee } from './employee.model';
 import { kpiValue } from './formula_entry.cnst';
 
@@ -47,7 +48,6 @@ export class DashboardService {
   }
 
   public addFormulaStatistics(formulaObject: kpiValue): Observable<any> {
-    console.log(formulaObject, 'object here')
     let formulaStats: any = {};
     return new Observable( observer => {
       let dummyFormulaObject: any = formulaObject;
@@ -58,7 +58,6 @@ export class DashboardService {
       let dateString = dateObject.getFullYear() + '-' + dateObject.getMonth() + '-' + dateObject.getDate();
       dummyFormulaObject.percentValue = this.getPercentageValue(dummyFormulaObject);
       dummyFormulaObject.dateString = dateString;
-      console.log(formulaStats, 'formula stats');
       this.http.post(this.apiUrl + '/kpiValues', dummyFormulaObject).subscribe( data => {
         observer.next(data);
         observer.complete();
@@ -70,6 +69,32 @@ export class DashboardService {
   }
 
   private getPercentageValue(formulaObject: kpiValue): number {
-    return (parseFloat(formulaObject.numerator) / parseFloat(formulaObject.denominator)) * 100;
+    const multiplicationFactor = kpiMultiplicationFactory[formulaObject.kpiValue] || 100;
+    return (parseFloat(formulaObject.numerator) / parseFloat(formulaObject.denominator)) * multiplicationFactor;
   }
+
+  public getValuesForKPI(kpiName): Observable<any> {
+    const kpiValues: any = Object.assign({}, KPIFixedValues[kpiName]);
+    return new Observable( observer => {
+      this.http.get(this.apiUrl + '/kpiValues').subscribe( (data: any[]) => {
+        data.forEach( value => {
+          if (value.kpiValue === kpiName) {
+            kpiValues[this.getDateString(value.dateString)] = value.percentValue;
+          }
+        })
+        observer.next(kpiValues);
+        observer.complete();
+      }, error => {
+        observer.next({});
+        observer.complete();
+      })
+    })
+  }
+
+  private getDateString(date) {
+    let monthList = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    let dateValue = date.split('-');
+    return monthList[dateValue[1]] +' -'+ dateValue[0];
+  }
+
 }
