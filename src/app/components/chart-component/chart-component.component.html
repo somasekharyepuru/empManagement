@@ -19,10 +19,26 @@
         [Highcharts]= 'Highcharts'
         [options]="actualChartOptions"
         [(update)]="updateChart" [oneToOne]="true"
-
-        style="width: 100%;display: block;height:600px"
-      >
+        style="width: 100%;display: block;height:600px">
       </highcharts-chart>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Time Period</th>
+            <th>Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of getHeaders(tableData)">
+            <td>{{key}}</td>
+            <td>{{tableData[key]}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

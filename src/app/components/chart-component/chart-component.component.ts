@@ -24,6 +24,7 @@ export class ChartComponentComponent implements OnInit {
   Highcharts: typeof Highcharts = Highcharts;
   showChart = false;
   updateChart = false;
+  tableData: any = {};
   chartOptions: any = {
     chart: {
         type: 'column'
@@ -35,8 +36,7 @@ export class ChartComponentComponent implements OnInit {
         text: 'Source: Leelavathi Hospitals'
     },
     xAxis: {
-        categories: [
-        ],
+        categories: [],
         crosshair: true
     },
     yAxis: {
@@ -75,9 +75,7 @@ export class ChartComponentComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private dashboardService: DashboardService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
     this.userInfo = this.authService.getUserDetails();
@@ -95,6 +93,7 @@ export class ChartComponentComponent implements OnInit {
       } else {
         this.activeKpi = params.kpi;
         if (this.activeKpi != '-1') {
+          this.tableData = {};
           this.intiComponent();
         }
       }
@@ -105,7 +104,9 @@ export class ChartComponentComponent implements OnInit {
     this.showChart = false;
     this.actualChartOptions = JSON.parse(JSON.stringify(this.chartOptions));
     this.dashboardService.getValuesForKPI(this.activeKpi).subscribe( data => {
+      console.log(data, 'data here in the things*****');
       if (data) {
+        this.tableData = data;
         this.actualChartOptions.xAxis.categories = Object.keys(data);
         this.actualChartOptions.series[0].name = this.kpiDropdownValues[this.activeKpi].title;
         this.actualChartOptions.series[0].data = Object.values(data);
